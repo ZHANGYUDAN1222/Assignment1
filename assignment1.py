@@ -1,8 +1,8 @@
 """
 Replace the contents of this module docstring with your own details
-Name:
-Date started:
-GitHub URL:
+Name:Yudan Zhang
+Date started: 30/07/2020
+GitHub URL:https://github.com/JCUS-CP1404/assignment-1-travel-tracker-ZHANGYUDAN1222
 """
 
 
