@@ -103,26 +103,33 @@ def main():
     places, places_n, places_v = csv_to_list(places, places_n, places_v)
 
     print("Travel Tracker 1.0 - by <Yudan Zhang>")
-    places_n.sort(key=itemgetter(2))
-    places_v.sort(key=itemgetter(2))
-    menu = input('''Menu:
+    menu = True
+    while menu:
+        places_n.sort(key=itemgetter(2))
+        places_v.sort(key=itemgetter(2))
+        menu = input('''Menu:
 L - List places
 A - Add new place
 M - Mark a place as visited
 Q - Quit
 >>> ''').upper()
-    if menu == 'L':  # list places
-        read_list(places_n, places_v)
-    elif menu == 'A':  # Add
-        A_menu(places, places_n)
-    elif menu == 'M':  # Mark
-        read_list(places_n, places_v)
-        M_menu(places, places_n, places_v)
-    elif menu == 'Q':  # Quit
-        print('''%i places saved to places.csv
+        if menu == 'L':  # list places
+            read_list(places_n, places_v)
+            menu = True
+        elif menu == 'A':  # Add
+            A_menu(places, places_n)
+            menu = True
+        elif menu == 'M':  # Mark
+            read_list(places_n, places_v)
+            M_menu(places, places_n, places_v)
+            menu = True
+        elif menu == 'Q':  # Quit
+            print('''%i places saved to places.csv
 Have a nice day :)''' % len(places))
-    else:
-        print('Invalide menu choice')
+            menu = False
+        else:
+            print('Invalide menu choice')
+            menu = True
 
 if __name__ == '__main__':
     main()
