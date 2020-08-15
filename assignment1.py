@@ -94,6 +94,12 @@ Enter the number of a place to mark as visited
         else:
             print('Invalid input; enter a valid number')
 
+# store in csv in the end
+def write_in_csv(places):
+    with open('places.csv','w',newline='') as w_f:
+        writer=csv.writer(w_f)
+        writer.writerows(places)
+
 def main():
     print("Travel Tracker 1.0 - by <Yudan Zhang>")
     places = []
@@ -130,6 +136,7 @@ Have a nice day :)''' % len(places))
         else:
             print('Invalide menu choice')
             menu = True
+    write_in_csv((places))
 
 if __name__ == '__main__':
     main()
