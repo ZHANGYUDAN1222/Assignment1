@@ -36,6 +36,38 @@ def read_list(places_n,places_v):
         print(' %i. %-15s in %-15s priority%5s'%(count_places_total,z[0],z[1],z[2]))
         count_places_total+=1
 
+# Add
+def A_menu(places,places_n):
+    valid_name=False
+    while valid_name==False:
+        new_place=input('Name:')
+        if new_place=='' or new_place==' ':
+            print('Input cannot be blank')
+        else:
+            valid_place=True
+            break
+    while valid_place:
+        country=input('Country:')
+        if country=='' or country==' ':
+            print('Input cannot be blank')
+        else:
+            valid_country=True
+            break
+    while valid_country:
+        priority=input('Priority:')
+        if priority=='' or priority==' ':
+            print('Invalid input; enter a valid number')
+        elif priority.isdigit():
+            if int(priority)<=0:
+                print('Number must be > 0')
+            else:
+                print('%s in %s (priority %i) added to Travel Tracker.'%(new_place.title(),country.title(),int(priority)))
+                places_n.append([new_place.title(),country.title(),int(priority),'n'])  # store in places_n and places
+                places.append([new_place.title(),country.title(),int(priority),'n'])
+                break
+        else:
+            print('Invalid input; enter a valid number')
+
 def main():
     print("Travel Tracker 1.0 - by <Yudan Zhang>")
     places = []
@@ -55,6 +87,8 @@ Q - Quit
 >>> ''').upper()
     if menu == 'L':  # list places
         read_list(places_n, places_v)
+    elif menu == 'A':  # Add
+        A_menu(places, places_n)
 
 if __name__ == '__main__':
     main()
