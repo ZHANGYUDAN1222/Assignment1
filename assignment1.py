@@ -118,6 +118,11 @@ Q - Quit
     elif menu == 'M':  # Mark
         read_list(places_n, places_v)
         M_menu(places, places_n, places_v)
+    elif menu == 'Q':  # Quit
+        print('''%i places saved to places.csv
+Have a nice day :)''' % len(places))
+    else:
+        print('Invalide menu choice')
 
 if __name__ == '__main__':
     main()
