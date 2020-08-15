@@ -11,7 +11,7 @@ Note: If you use the free WakaTime service on your own machine, you can track ex
 See https://trello.com/c/6H24THnj/21-wakatime-time-tracking-for-ides-join-our-leaderboard
 
 1. How long did the entire assignment 1 project take you?
-> answer...
+> About 3 hours
 
 2. What do you plan to do  differently in your development process for assignment 2?
-> answer...
+> Use dictionary instead of list, try to write simpler and clearer code.
