@@ -68,6 +68,32 @@ def A_menu(places,places_n):
         else:
             print('Invalid input; enter a valid number')
 
+# Mark
+def M_menu(places,places_n,places_v):
+    while True:
+        if len(places_n)==0:
+            print('No unvisited places')
+            break
+        change=input('''%i places. You still want to visit %i places.
+Enter the number of a place to mark as visited
+>>> '''%(len(places),len(places_n)))
+        if change.isdigit():
+            if int(change)<=0:
+                print('Number must be > 0')
+            elif len(places_n) < int(change) <= len(places):
+                print('That place is already visited')
+                break
+            elif int(change) > len(places):
+                print('Invalid place number')
+            else:
+                m_place=places_n[int(change)-1]
+                print('%s in %s visited!'%(m_place[0],m_place[1]))
+                places_n.pop(int(change)-1)
+                places_v.append(m_place)
+                break
+        else:
+            print('Invalid input; enter a valid number')
+
 def main():
     print("Travel Tracker 1.0 - by <Yudan Zhang>")
     places = []
@@ -89,6 +115,9 @@ Q - Quit
         read_list(places_n, places_v)
     elif menu == 'A':  # Add
         A_menu(places, places_n)
+    elif menu == 'M':  # Mark
+        read_list(places_n, places_v)
+        M_menu(places, places_n, places_v)
 
 if __name__ == '__main__':
     main()
