@@ -9,7 +9,7 @@ import csv
 
 # transfer csv to list
 def csv_to_list(places,places_n,places_v):
-    with open('places.csv',newline='') as s_f:
+    with open('places.csv','r') as s_f:
         s_f_lines=s_f.readlines()
         for lines in s_f_lines:
             lines_list=lines.strip().split(',')
@@ -23,7 +23,18 @@ def csv_to_list(places,places_n,places_v):
                 places_v.append(lines_list)
     return places, places_n, places_v
 
-
+# for the L_menu and M_menu
+def read_list(places_n,places_v):
+    # for the numbers
+    count_places_total=1
+    # list non-visited places
+    for i in places_n:
+        print('*%i. %-15s in %-15s priority%5s'%(count_places_total,i[0],i[1],i[2]))
+        count_places_total+=1
+    # list visited places
+    for z in places_v:
+        print(' %i. %-15s in %-15s priority%5s'%(count_places_total,z[0],z[1],z[2]))
+        count_places_total+=1
 
 def main():
     print("Travel Tracker 1.0 - by <Yudan Zhang>")
@@ -42,6 +53,8 @@ A - Add new place
 M - Mark a place as visited
 Q - Quit
 >>> ''').upper()
+    if menu == 'L':  # list places
+        read_list(places_n, places_v)
 
 if __name__ == '__main__':
     main()
